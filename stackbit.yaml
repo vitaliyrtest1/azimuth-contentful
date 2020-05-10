@@ -21,7 +21,7 @@ stackbit_banner:
   name: Azimuth
   create_url: 'https://app.stackbit.com/create?theme=azimuth'
   github_url: 'https://github.com/stackbithq/stackbit-theme-azimuth'
-geData:
+pageData:
   - pagePath: /
     initialExpandedPaths:
       - '[0]'
