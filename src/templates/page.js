@@ -23,20 +23,20 @@ export default class Page extends React.Component {
               <div className="inner-medium">
                 <article className="post post-full">
                   <header className="post-header">
-                    <h1 className="post-title">{_.get(this.props, 'pageContext.frontmatter.title')}</h1>
+                    <h1 className="post-title">{_.get(this.props, 'pageContext.frontmatter.title', null)}</h1>
                   </header>
-                  {_.get(this.props, 'pageContext.frontmatter.image') && (
+                  {_.get(this.props, 'pageContext.frontmatter.image', null) && (
                   <div className="post-thumbnail">
-                    <img src={safePrefix(_.get(this.props, 'pageContext.frontmatter.image'))} alt={_.get(this.props, 'pageContext.frontmatter.title')} />
+                    <img src={safePrefix(_.get(this.props, 'pageContext.frontmatter.image', null))} alt={_.get(this.props, 'pageContext.frontmatter.title', null)} />
                   </div>
                   )}
-                  {_.get(this.props, 'pageContext.frontmatter.subtitle') && (
+                  {_.get(this.props, 'pageContext.frontmatter.subtitle', null) && (
                   <div className="post-subtitle">
-                    {htmlToReact(_.get(this.props, 'pageContext.frontmatter.subtitle'))}
+                    {htmlToReact(_.get(this.props, 'pageContext.frontmatter.subtitle', null))}
                   </div>
                   )}
                   <div className="post-content">
-                    {htmlToReact(_.get(this.props, 'pageContext.html'))}
+                    {htmlToReact(_.get(this.props, 'pageContext.html', null))}
                   </div>
                 </article>
               </div>

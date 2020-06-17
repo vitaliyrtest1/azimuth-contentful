@@ -4,19 +4,19 @@ import moment from 'moment-strftime';
 
 export default class BlogPostFooter extends React.Component {
     render() {
-        let post = _.get(this.props, 'page');
-        let date_type = _.get(this.props, 'date_type');
+        let post = _.get(this.props, 'page', null);
+        let date_type = _.get(this.props, 'date_type', null);
         return (
             <footer className="post-meta">
-                <time className="published" dateTime={moment(_.get(post, 'frontmatter.date')).strftime('%Y-%m-%d %H:%M')}>
+                <time className="published" dateTime={moment(_.get(post, 'frontmatter.date', null)).strftime('%Y-%m-%d %H:%M')}>
                 {(date_type === 'short') ? (
-                    moment(_.get(post, 'frontmatter.date')).strftime('%B %d, %Y')
+                    moment(_.get(post, 'frontmatter.date', null)).strftime('%B %d, %Y')
                 ) : 
-                    moment(_.get(post, 'frontmatter.date')).strftime('%A, %B %e, %Y')
+                    moment(_.get(post, 'frontmatter.date', null)).strftime('%A, %B %e, %Y')
                 }
                 </time>
-                {_.get(post, 'frontmatter.author') && ((() => {
-                    let author = _.get(post, 'frontmatter.author');
+                {_.get(post, 'frontmatter.author', null) && ((() => {
+                    let author = _.get(post, 'frontmatter.author', null);
                     return (', By ' + author.first_name  + author.last_name);
                 })())}
             </footer>
